@@ -1,0 +1,6 @@
+[submodule "kenben"]
+	path = kenben
+	url = https://github.com/SarahZimmermann-Schmutzler/kenben.git
+[submodule "kenben_frontend"]
+	path = kenben_frontend
+	url = https://github.com/SarahZimmermann-Schmutzler/kenben_frontend.git
