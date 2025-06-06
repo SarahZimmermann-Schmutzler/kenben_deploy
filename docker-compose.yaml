@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+  frontend:
+    # for manual build process
+    # build:
+      # context: ./kenben_frontend
+      # dockerfile: Dockerfile
+    # for build with GitHub Actions
+    image: ghcr.io/sarahzimmermann-schmutzler/kenben-frontend:latest
+    env_file: .env
+    container_name: kenben-frontend
+    ports:
+      - ${FRONTEND_EXTERNAL_PORT}:80
+    restart: on-failure
+    networks:
+      - kenben-network
+
+  backend:
+    # for manual build process
+    # build:
+      # context: ./kenben
+      # dockerfile: Dockerfile
+    # for build with GitHub Action
+    image: ghcr.io/sarahzimmermann-schmutzler/kenben-backend:latest
+    env_file: .env
+    container_name: kenben-backend
+    volumes:
+      # mount for the database directory
+      - kenben-volume:/app/db
+    ports:
+      - ${BACKEND_EXTERNAL_PORT}:8000
+    restart: on-failure
+    networks:
+      - kenben-network
+
+volumes:
+  kenben-volume:
+
+networks:
+  kenben-network:
