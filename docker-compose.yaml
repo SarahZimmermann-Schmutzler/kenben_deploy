@@ -35,6 +35,8 @@ services:
 
 volumes:
   kenben-volume:
+    external: true
+    name: kenben-volume
 
 networks:
   kenben-network:
