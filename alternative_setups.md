@@ -1,5 +1,7 @@
 # KenBen - Alternative Setup Guides
 
+If you don't want to work with Github Actions, there are **other ways to use KenBen**, either locally or with Docker.
+
 ## Table of Contents
 
 1. [Run KenBen locally without Docker](#run-kenben-locally-without-docker)
@@ -29,7 +31,6 @@
 
     | Variable | Description | Default Value |
     | -------- | ----------- | ------------- |
-    | **For backend application** | | |
     | DEBUG | Set to True to enable debug mode for local development/testing; Set to False in production environments | True |
     | SECRET_KEY | Essential cryptographic key used by Django to protect sensitive data and provide security-critical functionality | [create](https://stackoverflow.com/questions/41298963/is-there-a-function-for-generating-settings-secret-key-in-django) |
 

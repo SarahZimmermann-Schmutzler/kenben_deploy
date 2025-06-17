@@ -42,8 +42,8 @@ This section provides a **minimal setup guide**. For detailed instructions and a
    ```
 
 1. **Manually trigger** the deployment workflow
-   * * <ins>In the GitHub UI, you can find it under:</ins>
-       * **Actions > Build & Deploy Kenben > Run workflow**
+   * In the GitHub UI, you can find it under:
+     * **Actions > Build & Deploy Kenben > Run workflow**
 
 ## Usage
 
@@ -51,8 +51,8 @@ This section provides a **minimal setup guide**. For detailed instructions and a
 
 **KenBen** can be run in three ways:
 
-* [**For local development without Docker**](https://github.com/SarahZimmermann-Schmutzler/kenben_deploy/blob/main/.alternative_setups.md)
-* [**Using Docker manually**](https://github.com/SarahZimmermann-Schmutzler/kenben_deploy/blob/main/.alternative_setups.md)
+* [**For local development without Docker**](https://github.com/SarahZimmermann-Schmutzler/kenben_deploy/blob/main/.alternative_setups.md#run-kenben-locally-without-docker)
+* [**Using Docker manually**](https://github.com/SarahZimmermann-Schmutzler/kenben_deploy/blob/main/.alternative_setups.md#run-kenben-with-docker-manually)
 * **Automatically on a remote server via GitHub Actions** – follow the steps below:
 
 1. [Fork](https://docs.github.com/de/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) the project to your namespace.
@@ -88,7 +88,7 @@ This section provides a **minimal setup guide**. For detailed instructions and a
 
 1. Create a **persistent volume** on your remote server
 
-   * To ensure your data is not lost after container restarts:
+   * To ensure your **data is not lost after container restarts**:
   
       ```bash
       docker volume create kenben-volume
@@ -97,7 +97,7 @@ This section provides a **minimal setup guide**. For detailed instructions and a
 1. **Manually trigger** the deployment workflow
 
    * In the `deployment.yml`, the `workflow_dispatch` trigger is enabled, so the workflow must be triggered manually:
-     * * <ins>In the GitHub UI, you can find it under</ins>
+     * In the GitHub UI, you can find it under:
        * **Actions > Build & Deploy Kenben > Run workflow**
 
    * <ins>Alternative</ins>: Enable **Auto-Deploy on Push** if you'd prefer automatic deployment when pushing to the main branch:
@@ -120,7 +120,7 @@ This section provides a **minimal setup guide**. For detailed instructions and a
 
 ### Description
 
-#### Backend (Django and Django REST framework)
+#### <ins>Backend (Django and Django REST framework)</ins>
 
 This is where the core **focus of this application** lies.  
   
@@ -144,7 +144,7 @@ The backend consists of **two main areas**:
 
 Each component is exposed through the API and supports **full CRUD operations**.
 
-#### Frontend (Angular and Material Design Lite)
+#### <ins>Frontend (Angular and Material Design Lite)</ins>
 
 The frontend was built using **Angular** with the goal of keeping the interface simple and focused. It uses **Material Design Lite (MDL)** for styling, providing a clean and lightweight UI without relying on a predefined mockup.  
   
