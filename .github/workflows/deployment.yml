@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_OWNER: sarahzimmermann-schmutzler
+  IMAGE_OWNER: ${{ vars.IMAGE_OWNER }}
 
 jobs:
   # build container images in GitHub Actions Runner and push build images in ghcr
@@ -43,6 +43,7 @@ jobs:
           DJANGO_SUPERUSER_PASSWORD: ${{ secrets.DJANGO_SUPERUSER_PASSWORD }}
           DJANGO_SUPERUSER_EMAIL: ${{ secrets.DJANGO_SUPERUSER_EMAIL }}
           FRONTEND_EXTERNAL_PORT: ${{ vars.FRONTEND_EXTERNAL_PORT }}
+          IMAGE_OWNER: ${{ vars.IMAGE_OWNER }}
         run: env > .env
 
       - name: Kenben Frontend - build docker image in runner and push to registry

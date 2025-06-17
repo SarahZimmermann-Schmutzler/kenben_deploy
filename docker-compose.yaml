@@ -6,7 +6,7 @@ services:
       # context: ./kenben_frontend
       # dockerfile: Dockerfile
     # for build with GitHub Actions
-    image: ghcr.io/sarahzimmermann-schmutzler/kenben-frontend:latest
+    image: ghcr.io/${IMAGE_OWNER}/kenben-frontend:latest
     env_file: .env
     container_name: kenben-frontend
     ports:
@@ -21,7 +21,7 @@ services:
       # context: ./kenben
       # dockerfile: Dockerfile
     # for build with GitHub Action
-    image: ghcr.io/sarahzimmermann-schmutzler/kenben-backend:latest
+    image: ghcr.io/${IMAGE_OWNER}/kenben-backend:latest
     env_file: .env
     container_name: kenben-backend
     volumes:
