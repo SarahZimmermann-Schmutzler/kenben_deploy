@@ -51,8 +51,8 @@ This section provides a **minimal setup guide**. For detailed instructions and a
 
 **KenBen** can be run in three ways:
 
-* [**For local development without Docker**](https://github.com/SarahZimmermann-Schmutzler/kenben_deploy/blob/main/.alternative_setups.md#run-kenben-locally-without-docker)
-* [**Using Docker manually**](https://github.com/SarahZimmermann-Schmutzler/kenben_deploy/blob/main/.alternative_setups.md#run-kenben-with-docker-manually)
+* [**For local development without Docker**](https://github.com/SarahZimmermann-Schmutzler/kenben_deploy/blob/main/alternative_setups.md#run-kenben-locally-without-docker)
+* [**Using Docker manually**](https://github.com/SarahZimmermann-Schmutzler/kenben_deploy/blob/main/alternative_setups.md#run-kenben-with-docker-manually)
 * **Automatically on a remote server via GitHub Actions** – follow the steps below:
 
 1. [Fork](https://docs.github.com/de/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) the project to your namespace.
