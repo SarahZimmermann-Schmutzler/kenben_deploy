@@ -105,7 +105,7 @@ This section provides a **minimal setup guide**. For detailed instructions and a
        * <ins>Example</ins>: Clone the repo e.g. using an SSH-Key:  
 
           ```bash
-          git clone git@github.com:Your-Name/kenben_deploy.git
+          git clone git@github.com:SarahZimmermann-Schmutzler/kenben_deploy.git
           ```
 
        * Navigate to the **project directory**:

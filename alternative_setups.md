@@ -32,7 +32,7 @@ If you don't want to work with Github Actions, there are **other ways to use Ken
     | Variable | Description | Default Value |
     | -------- | ----------- | ------------- |
     | DEBUG | Set to True to enable debug mode for local development/testing; Set to False in production environments | True |
-    | SECRET_KEY | Essential cryptographic key used by Django to protect sensitive data and provide security-critical functionality | [create](https://stackoverflow.com/questions/41298963/is-there-a-function-for-generating-settings-secret-key-in-django) |
+    | SECRET_KEY | Essential cryptographic key used by Django to protect sensitive data and provide security-critical functionality - [create here](https://stackoverflow.com/questions/41298963/is-there-a-function-for-generating-settings-secret-key-in-django) | your-secret-key |
 
 1. Create a **virtual environment** and **install Python packages**:
 
@@ -42,23 +42,25 @@ If you don't want to work with Github Actions, there are **other ways to use Ken
     pip install -r requirements.txt
     ```
 
-1. **Start the backend**:
+1. **Prepare and start the backend**:
 
     ```bash
-    python manage.py runserver
+    python manage.py migrate
+    python manage.py createsuperuser
     ```
 
-1. In a **second terminal**, navigate into the **frontend directory** and **install the frontend dependencies**:
+    * In a second terminal:
+
+        ```bash
+        python manage.py runserver
+        ```
+
+1. In a **new terminal window**, navigate into the **frontend directory** and **install the frontend dependencies** and start the frontend on http://localhost:4200/:
 
     ```bash
     cd ..
     cd kenben_frontend
     npm install
-    ```
-
-1. **Start the frontend**:
-
-    ```bash
     ng serve
     ```
 
@@ -91,8 +93,8 @@ If you don't want to work with Github Actions, there are **other ways to use Ken
     | -------- | ----------- | ------------- |
     | **For backend application** | | |
     | DEBUG | Set to True to enable debug mode for local development/testing; Set to False in production environments | True |
-    | SECRET_KEY | Essential cryptographic key used by Django to protect sensitive data and provide security-critical functionality | [create](https://stackoverflow.com/questions/41298963/is-there-a-function-for-generating-settings-secret-key-in-django) |
-    | IP_ADDRESS_VM | Server IP address, added to the ALLOWED_HOSTS list in settings.py | 127.0.0.1 |
+    | SECRET_KEY | Essential cryptographic key used by Django to protect sensitive data and provide security-critical functionality - [create here](https://stackoverflow.com/questions/41298963/is-there-a-function-for-generating-settings-secret-key-in-django) | your-secret-key |
+    | IP_ADDRESS_VM | Server IP address, added to the ALLOWED_HOSTS list in settings.py | 127.0.0.1:4200 |
     | CORS_ALLOWED_ORIGINS | List of all hosts with their portnumbers, added to settings.py | http://localhost:4200 |
     | **For containerization** | | |
     | BACKEND_EXTERNAL_PORT | External portnumber for backend container | 8000 |
@@ -100,6 +102,14 @@ If you don't want to work with Github Actions, there are **other ways to use Ken
     | DJANGO_SUPERUSER_USERNAME | Username to create a superuser for the admin panel | admin |
     | DJANGO_SUPERUSER_EMAIL | Email address to create a superuser for the admin panel | admin@example.com |
     | DJANGO_SUPERUSER_PASSWORD | Password to create a superuser for the admin panel | changeme123 |
+
+1. Create a **persistent volume** on your remote server
+
+   * To ensure your **data is not lost after container restarts**:
+  
+      ```bash
+      docker volume create kenben-volume
+      ```
 
 1. **Build and start the containers** in the background (detached mode):
 
